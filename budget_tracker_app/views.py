@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, redirect
 from budget_tracker_app.models import Transaction
 
 # Create your views here.
@@ -71,7 +71,7 @@ def filter_transaction(request):
     )
 
     else:
-        transaction_list()
+        return redirect("list-transactions")
 
 
     
