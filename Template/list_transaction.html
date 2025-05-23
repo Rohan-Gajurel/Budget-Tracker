@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block contents %}
+<div class="container-fluid position-relative">
+    <div class="container mt-4">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">SN</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ transaction.title }}</td>
+                    <td>{{ transaction.amount }}</td>
+                    <td>{{ transaction.type }}</td>
+                    <td>{{ transaction.category }}</td>
+                    <td>{{ transaction.date }}</td>
+                    <td>
+                        <a href="{% url 'transaction-delete' transaction.id %}" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr class="table-success">
+                    <th colspan="2">Total Balance</th>
+                    <td colspan="5">{{total_balance}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock contents %}

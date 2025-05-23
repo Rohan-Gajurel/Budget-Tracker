@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block contents %}
+<div class="container-fuid ">
+    
+    <form action="" class="form-control" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title">
+        </div>
+        <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="text" class="form-control" id="amount" name="amount">
+        </div>
+        <div class="mb-3">
+            <label for="type" class="form-label">Type</label>
+            <select class="form-select" aria-label="Default select example" id="type" name="type">
+                <option selected>Select Type</option>
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+            </select>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" id="category" name="category">
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
+{% endblock contents %}
